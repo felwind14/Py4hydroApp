@@ -1,1 +1,6 @@
+This is the link to approved users to the data- this is stored in a separate cloud where it can be downloaded.
+Since this laptop is the author we have access to the data in the cloud 
+Remember this data is not store din github becaus ecan be too heavy
+
+
 https://unaledu-my.sharepoint.com/:f:/g/personal/fafonsecaa_unal_edu_co/ElrWAfPk2lRDkGN0DqN_Rx8BQuGgfukv76qoXxFkd-iKaA?e=g3SiTj
