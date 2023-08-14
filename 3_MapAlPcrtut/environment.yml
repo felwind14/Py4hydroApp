@@ -1,0 +1,14 @@
+name: pcraster44
+channels:
+  - defaults
+dependencies:
+  - pcraster
+  - gdal
+  - jupyter
+  - xlrd
+  - pandas-datareader
+  - numexpr
+  - scikit-learn
+  - pycrs
+  - matplotlib
+prefix: C:\Users\hansa\.conda\envs\pcraster44
