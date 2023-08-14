@@ -159,3 +159,7 @@ cython_debug/
 #  option (not recommended) you can uncomment the following to ignore the entire idea folder.
 #.idea/
 1_gdal/data/
+3_MapAlPcrtut/1_MapAlgebra/data
+3_MapAlPcrtut/GroundwaterInterpolation/data
+3_MapAlPcrtut/PCRasterCatchmentDelineation/data
+3_MapAlPcrtut/PCRasterRunoffModel/Data
