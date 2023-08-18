@@ -14,11 +14,10 @@ def RasterLayerProperties(RasterLayer):
     """    
 
     print("Raster file: {}".format(RasterLayer.GetDescription()))
-    print("Driver: {}/{}".format(RasterLayer.GetDriver().ShortName,
-                            RasterLayer.GetDriver().LongName))
+    print("Driver: {}/{}".format(RasterLayer.GetDriver().ShortName, RasterLayer.GetDriver().LongName))
     print("Size is {} x {} x {}".format(RasterLayer.RasterXSize,
-                                    RasterLayer.RasterYSize,
-                                    RasterLayer.RasterCount))
+                                        RasterLayer.RasterYSize,
+                                        RasterLayer.RasterCount))
     
     RasterLayerProjection = RasterLayer.GetProjection()
     crs = pycrs.parse.from_ogc_wkt(RasterLayerProjection)
@@ -30,6 +29,12 @@ def RasterLayerProperties(RasterLayer):
         print("Origin = ({}, {})".format(geotransform[0], geotransform[3])) 
         print("Pixel Size = ({} {}, {} {})".format(geotransform[1],crs.unit.unitname.ogc_wkt, \
                                                    geotransform[5],crs.unit.unitname.ogc_wkt))  
+        
+    #Number of bands
+    count = RasterLayer.RasterCount
+    print(f'Number of bands: {count}')
+
+    #Extracting maximum and minimum of the band    
     RasterLayerBand = RasterLayer.GetRasterBand(1)
     print("Minimum: {}".format(RasterLayerBand.GetMinimum()))
     print("Maximum: {}".format(RasterLayerBand.GetMaximum()))
