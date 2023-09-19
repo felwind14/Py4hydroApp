@@ -1,6 +1,8 @@
 # """
 # Created on Mon 14 August 
 # The same as the jupyter notebook
+#Automation of preparation of maps
+  
 
 # @author: Felipe.Fonseca
 # """
