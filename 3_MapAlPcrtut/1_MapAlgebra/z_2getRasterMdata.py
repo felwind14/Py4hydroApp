@@ -12,35 +12,38 @@ def RasterLayerProperties(RasterLayer):
     Args:
         RasterLayer (_type_): Entry layer to know the properties
     """    
-
-    print("Raster file: {}".format(RasterLayer.GetDescription()))
-    print("Driver: {}/{}".format(RasterLayer.GetDriver().ShortName, RasterLayer.GetDriver().LongName))
-    print("Size is {} x {} x {}".format(RasterLayer.RasterXSize,
-                                        RasterLayer.RasterYSize,
-                                        RasterLayer.RasterCount))
-    
-    RasterLayerProjection = RasterLayer.GetProjection()
-    crs = pycrs.parse.from_ogc_wkt(RasterLayerProjection)
-    print("Projection:",crs.name)
-    print("Map units:",crs.unit.unitname.ogc_wkt)
-
-    geotransform = RasterLayer.GetGeoTransform()
-    if geotransform:
-        print("Origin = ({}, {})".format(geotransform[0], geotransform[3])) 
-        print("Pixel Size = ({} {}, {} {})".format(geotransform[1],crs.unit.unitname.ogc_wkt, \
-                                                   geotransform[5],crs.unit.unitname.ogc_wkt))  
+    try:
+        print("Raster file: {}".format(RasterLayer.GetDescription()))
+        print("Driver: {}/{}".format(RasterLayer.GetDriver().ShortName, RasterLayer.GetDriver().LongName))
+        print("Size is {} x {} x {}".format(RasterLayer.RasterXSize,
+                                            RasterLayer.RasterYSize,
+                                            RasterLayer.RasterCount))
         
-    #Number of bands
-    count = RasterLayer.RasterCount
-    print(f'Number of bands: {count}')
+        RasterLayerProjection = RasterLayer.GetProjection()
+        crs = pycrs.parse.from_ogc_wkt(RasterLayerProjection)
+        print("Projection:",crs.name)
+        print("Map units:",crs.unit.unitname.ogc_wkt)
 
-    #Extracting maximum and minimum of the band    
-    RasterLayerBand = RasterLayer.GetRasterBand(1)
-    print("Minimum: {}".format(RasterLayerBand.GetMinimum()))
-    print("Maximum: {}".format(RasterLayerBand.GetMaximum()))
-    
-    print()
-    RasterLayer = None
+        geotransform = RasterLayer.GetGeoTransform()
+        if geotransform:
+            print("Origin = ({}, {})".format(geotransform[0], geotransform[3])) 
+            print("Pixel Size = ({} {}, {} {})".format(geotransform[1],crs.unit.unitname.ogc_wkt, \
+                                                    geotransform[5],crs.unit.unitname.ogc_wkt))  
+            
+        #Number of bands
+        count = RasterLayer.RasterCount
+        print(f'Number of bands: {count}')
+
+        #Extracting maximum and minimum of the band    
+        RasterLayerBand = RasterLayer.GetRasterBand(1)
+        print("Minimum: {}".format(RasterLayerBand.GetMinimum()))
+        print("Maximum: {}".format(RasterLayerBand.GetMaximum()))
+        
+        print()
+        RasterLayer = None
+
+    except StopIteration:
+        print("No more information available for this raster layer")  #Provisional fix but a more comprehensive one needs to be done-for
 
 def main(): 
 
