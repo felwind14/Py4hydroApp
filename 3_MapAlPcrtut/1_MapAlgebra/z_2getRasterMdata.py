@@ -13,7 +13,7 @@ def RasterLayerProperties(RasterLayer):
         RasterLayer (_type_): Entry layer to know the properties
     """    
     try:
-        print("Raster file: {}".format(RasterLayer.GetDescription()))
+        print("\n Raster file: {}".format(RasterLayer.GetDescription()))
         print("Driver: {}/{}".format(RasterLayer.GetDriver().ShortName, RasterLayer.GetDriver().LongName))
         print("Size is {} x {} x {}".format(RasterLayer.RasterXSize,
                                             RasterLayer.RasterYSize,
@@ -43,7 +43,7 @@ def RasterLayerProperties(RasterLayer):
         RasterLayer = None
 
     except StopIteration:
-        print("No more information available for this raster layer")  #Provisional fix but a more comprehensive one needs to be done-for
+        print("No more information available for this raster layer /n")  #Provisional fix but a more comprehensive one needs to be done-for
 
 def main(): 
 
@@ -68,16 +68,3 @@ def main():
 if __name__ == "__main__":
     main()    
 
-#The following lines were replaced by main function to do indefinite number of layers    
-    
-# DTMLayer = gdal.Open( "data/dtm.map" )
-# RasterLayerProperties(DTMLayer)
-
-# BuildgLayer = gdal.Open( "data/buildg.map" )
-# RasterLayerProperties(BuildgLayer)
-
-# RoadsLayer = gdal.Open( "data/roads.map" )
-# RasterLayerProperties(RoadsLayer)
-
-# GWLevelLayer = gdal.Open( "data/gwlevel.map" )
-# RasterLayerProperties(GWLevelLayer)
